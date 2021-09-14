@@ -17,6 +17,7 @@ class Atlas():
         self._longs = np.random.uniform(*Atlas.LONG_RANGE, self._num_cities)
         self._lats = np.random.uniform(*Atlas.LAT_RANGE, self._num_cities)
         self._adj_mat = gen_adj_mat(self._longs, self._lats)
+        print(self._adj_mat)
         self._paths_expanded = []
         self._nodes_expanded = set()
 
@@ -33,6 +34,7 @@ class Atlas():
         return self._num_cities
 
     def __str__(self):
+        print(self._paths_expanded)
         return 'an atlas of {} cities'.format(self._num_cities)
 
     def __repr__(self):
