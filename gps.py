@@ -21,8 +21,14 @@ def find_best_path(atlas):
     of that path.'''
 
     # THIS IS WHERE YOUR AMAZING CODE GOES
+    # print(atlas._adj_mat)
     
     num_cities = atlas.get_num_cities()
+    # for i in range(num_cities):
+    #     print (i)
+    #     print(atlas.get_crow_flies_dist(i, num_cities-1))
+
+
     nodes = {}
     
     length = 0
@@ -34,10 +40,13 @@ def find_best_path(atlas):
         #      break
         
         dict_1 = {}
+
     
         for x in range(num_cities):
             next_item = {}
             if atlas.get_road_dist(i,x) != inf and i != x and "{}".format(x) not in nodes :
+
+                
                 if "{}".format(i) not in nodes:
                     nodes["{}".format(i)] = {"{}".format(x): []}
                 if "{}".format(x) not in nodes["{}".format(i)]:
@@ -57,9 +66,12 @@ def find_best_path(atlas):
                 nodes["{}".format(i)]["{}".format(x)] = both_list.copy()
             if  len(dict_1) >0:
                 nodes["{}".format(i)]= dict_1
+
+
             if x == num_cities-1:
                 lowest_node = lowest_value(nodes)
-                print(lowest_node)
+                # print(lowest_node)
+            
                 if lowest_node == 0:
                     print("THERE IS NO SOLUTION")
                     return None
@@ -78,8 +90,7 @@ def find_best_path(atlas):
             break   
 
 
-    # Here's a (bogus) example return value:
-    return ([0,3,2,4],970)
+
 
 def lowest_value(dict):
     tuple_dict = {}
