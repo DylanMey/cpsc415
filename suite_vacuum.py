@@ -24,7 +24,7 @@ Result = namedtuple('Result','score num_steps')
 
 class Suite():
 
-    NUM_CORES = 8
+    NUM_CORES = 12
 
     def __init__(self, base_seed=0, num_seeds=10):
         self.base_seed = base_seed
