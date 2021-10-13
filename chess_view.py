@@ -432,6 +432,7 @@ class View():
         filename = '{}/{}'.format(cfg.IMAGE_DIR,piece._get_filename())
         if filename not in self.photo_images:
             self.photo_images[filename] = tk.PhotoImage(file=filename)
+            print(*self.calculate_piece_coords(location))
         self.displayed_images[piece] = self.canvas.create_image(
             *self.calculate_piece_coords(location),
             image=self.photo_images[filename], tags='piece')
